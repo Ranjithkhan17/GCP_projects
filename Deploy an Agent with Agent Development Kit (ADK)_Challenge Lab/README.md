@@ -1,9 +1,11 @@
 # Update the requirements.txt with below ( adk version 2.0)
+```
 bs4>=0.0.2
 beautifulsoup4>=4.13.4
 chainlit>=2.11.1
 google-cloud-aiplatform[agent_engines,adk]>=1.112
 google-adk==2.0
+```
 
 ----------------------------------------
 #Task 3. Debug the Paint Agent
