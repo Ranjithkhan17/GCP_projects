@@ -1,3 +1,5 @@
+```
+
 adk eval_set create \
   bigquery_agent/evaluations \
   ledger
@@ -8,11 +10,11 @@ adk eval_set add_eval_case \
     ledger \
     --scenarios_file bigquery_agent/evaluations/scenarios.json \
     --session_input_file bigquery_agent/evaluations/session_input.json
-
+```
 ============================================================================
 
 # In the Cloud Shell Editor, navigate to the file adk_eval_challenge_lab/bigquery_agent/evaluations/eval_config.json
-
+```
 "rubrics": [
 
         {
@@ -42,7 +44,7 @@ adk eval_set add_eval_case \
       ]
 
 
-
+```
 
 
 
