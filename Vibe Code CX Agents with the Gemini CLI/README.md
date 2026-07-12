@@ -1,30 +1,45 @@
-Vibe coding is an emerging software development practice that uses artificial intelligence (AI) to generate functional code from natural language prompts, accelerating development, and making app building more accessible, especially for those with limited programming experience.
--------------------------------------------------------------------------------------------------------------------
-Objective
+# 🚀 Vibe Code CX Agents with the Gemini CLI
+
+Vibe coding is an emerging software development practice that uses artificial intelligence (AI) to generate functional code from natural language prompts, accelerating development, and making app building more accessible to developers of all skill levels.
+
+---
+
+## 📋 Objective
+
 In this lab, you learn how to perform the following tasks:
 
-Configure and interact with Gemini CLI.
-Configure CX Agent Studio as a Model Context Protocol (MCP) server.
-Vibe code a CX agent using Gemini CLI.
+- ✅ Configure and interact with Gemini CLI
+- ✅ Configure CX Agent Studio as a Model Context Protocol (MCP) server
+- ✅ Vibe code a CX agent using Gemini CLI
 
+---
 
-Task 1. Configure Gemini CLI to use the CX Agent Studio MCP server
-In the Google Cloud Console, open Cloud Shell, and run the following command to enable the CX Agent Studio MCP server.
+## # Task 1: Configure Gemini CLI to use the CX Agent Studio MCP server
 
-```
+### Step 1.1: Enable the CX Agent Studio MCP server
+
+In the Google Cloud Console, open Cloud Shell, and run the following command to enable the CX Agent Studio MCP server:
+
+```bash
 gcloud beta services mcp enable ces.googleapis.com \
 --project $GOOGLE_CLOUD_PROJECT
 ```
 
-List all available tools in the CX Agent Studio MCP server.
-```
+### Step 1.2: List all available tools
+
+List all available tools in the CX Agent Studio MCP server:
+
+```bash
 curl -s -X POST "https://ces.googleapis.com/mcp" \
  -H "Content-Type: application/json" \
  -d '{"jsonrpc":"2.0","id":0,"method":"tools/list"}' | jq
 ```
-Create a config file to configure the CX Agent Studio MCP server.
 
-```
+### Step 1.3: Create a configuration file
+
+Create a config file to configure the CX Agent Studio MCP server:
+
+```bash
 mkdir -p ~/.gemini/extensions/cx-agent
 cat > ~/.gemini/extensions/cx-agent/gemini-extension.json << EOF
 {
@@ -47,104 +62,125 @@ cat > ~/.gemini/extensions/cx-agent/gemini-extension.json << EOF
   }
 }
 EOF
+```
 
-```
-In Cloud Shell, run the Gemini CLI and click enter if asked to trust the folder.In Gemini CLI, run the following command to list all extensions available to verify that the CX agents extension is loaded.List all available tools in the CX Agent Studio MCP server /mcp list
-```
+### Step 1.4: Verify extensions are loaded
+
+In Cloud Shell, run the Gemini CLI and click enter if asked to trust the folder. In Gemini CLI, run the following command to list all extensions available to verify that the CX agents extension is loaded:
+
+```bash
 gemini
 /extensions list
 /mcp list
 ```
 
-Task 2. Create a CX agent from the console
-Open a new tab and navigate to the CX Agent Studio console, select your Project ID, and then click Continue.
+---
 
-Ensure that the Location is set to us.
+## # Task 2: Create a CX agent from the console
 
-Click Create your first AI agent.
+1. Open a new tab and navigate to the **CX Agent Studio console**
+2. Select your **Project ID** and click **Continue**
+3. Ensure that the **Location** is set to **us**
+4. Click **Create your first AI agent**
+5. Name it **cymbal-taxi** and click **Create**
+6. In the right-hand side panel, click on **Global Settings**
+7. Click on the **Advanced** tab
+8. Scroll down to **Logging** and then click **Enable Cloud Logging**
+9. Click **X** to close the side panel
 
-Name it cymbal-taxi and click Create.
+---
 
-In the right-hand side panel, click on Global Settings.
-
-Click on the Advanced tab.
-
-Scroll down to Logging and then click Enable Cloud Logging.
-
-Click X to close the side panel.
-
-Task 3. Vibe code your CX agent from the Gemini CLI
+## # Task 3: Vibe code your CX agent from the Gemini CLI
 
 In this task, you use the Gemini CLI to vibe code your CX agent by adding tools and instructions using natural language through the MCP server.
 
-In the first tab, go back to the Gemini CLI. If the session is no longer available, start a new one by running the gemini command in the Cloud Shell.
+### Step 3.1: Return to Gemini CLI
 
-In the Gemini CLI, run the following command to list all CX apps.
+In the first tab, go back to the Gemini CLI. If the session is no longer available, start a new one by running the `gemini` command in the Cloud Shell.
 
-```
+### Step 3.2: List all CX apps
+
+In the Gemini CLI, run the following command to list all CX apps:
+
+```bash
 list all cx apps
 ```
 
-If asked to clarify the location, enter us.
-If asked permission, select Allow for this session.
-If asked to clarify the project, enter your Project ID.
-If asked for permission, select Allow all server tools for this session.
+**Prompts you may encounter:**
+- If asked to clarify the location, enter: `us`
+- If asked permission, select: `Allow for this session`
+- If asked to clarify the project, enter: your **Project ID**
+- If asked for permission, select: `Allow all server tools for this session`
 
-Now ask gemini to show you all CX agents for your app.
+### Step 3.3: List all CX agents
 
-```
+Now ask Gemini to show you all CX agents for your app:
+
+```bash
 list all cx agents for the previously listed app
 ```
 
-Ask gemini to vibe code a tool to calculate the taxi ETA for the agent
-```
-Create a tool for the previously listed cx agent to help customers order a taxi. It should be called `get_taxi_eta`. It should receive a pickup location and a destination and provide the estimated time of pickup. For calculating the estimated time of pickup, give a random number between 5 and 15 minutes.
-```
-Ask gemini to vibe code a tool to book a taxi for the agent.
-```
-Create a tool for the previously listed cx agent to help customers order a taxi. It should be called `book_taxi`. It should receive a pickup location and a destination and provide a confirmation message that the taxi has been booked and a boolean saying booked: true.
-```
-Ask gemini to vibe code the agent for you by providing instructions in natural language.
-```
-update the previously listed cx agent to help customers order a taxi. It should start the conversation by introducing itself as the Cymbal Taxi assistant. It should ask the customer for the pickup location and the destination. Once it has all the information, it should provide the estimated time of pickup, which will be calculated using the `get_taxi_eta` tool, and ask to confirm the order. Once confirmed, it should call the `book_taxi` tool to book the taxi.
+### Step 3.4: Create taxi ETA tool
+
+Ask Gemini to vibe code a tool to calculate the taxi ETA for the agent:
+
+```bash
+Create a tool for the previously listed cx agent to help customers order a taxi. It should be called `get_taxi_eta`. It should receive a pickup location and a destination and provide the estimated time for the taxi to arrive.
 ```
 
-Task 4. Test the Cymbal Taxi agent assistant
+### Step 3.5: Create taxi booking tool
 
-Navigate to the CX Agent Studio console and select your Project ID, and click on cymbal-taxi to open your agent.
+Ask Gemini to vibe code a tool to book a taxi for the agent:
 
-Review the newly created agent, the instruction and the two tools that were created.
+```bash
+Create a tool for the previously listed cx agent to help customers order a taxi. It should be called `book_taxi`. It should receive a pickup location and a destination and provide a confirmation message with the booking details.
+```
 
-In the right-hand side panel, click on Global Settings.
+### Step 3.6: Update agent with instructions
 
-Click on the Advanced tab.
+Ask Gemini to vibe code the agent for you by providing instructions in natural language:
 
-Scroll down to Logging and verify that Enable Cloud Logging is still enabled; otherwise, enable it.
+```bash
+update the previously listed cx agent to help customers order a taxi. It should start the conversation by introducing itself as the Cymbal Taxi assistant. It should ask the customer for the pickup location, then ask for the destination. After that, it should use the get_taxi_eta tool to provide the estimated time, and then ask for confirmation before using the book_taxi tool to complete the booking.
+```
 
-Click X to close the side panel.
+---
 
-Go to Preview Agent and run the following conversation.
+## # Task 4: Test the Cymbal Taxi agent assistant
 
-| User Input       | Agent Response |
-| --------------- | --------------- |
-| Hi              | Hello! I'm the Cymbal Taxi assistant. I can help you order a taxi. Where would you like to be picked up?  |
+1. Navigate to the **CX Agent Studio console** and select your **Project ID**
+2. Click on **cymbal-taxi** to open your agent
+3. Review the newly created agent, the instructions, and the two tools that were created
+4. In the right-hand side panel, click on **Global Settings**
+5. Click on the **Advanced** tab
+6. Scroll down to **Logging** and verify that **Enable Cloud Logging** is still enabled; otherwise, enable it
+7. Click **X** to close the side panel
 
-|Alexanderplatz, 
-Berlin            |Great, thank you. And where will you be going?  |
+### Preview Agent Conversation
 
+Go to **Preview Agent** and run the following conversation:
 
-| Brandenburg Gate   | I have a taxi for you going from Alexanderplatz, Berlin to Brandenburg Gate. The estimated pickup time is 11 minutes. Should I go ahead and book it for                         you?   |
+| User Input | Agent Response |
+|:---|:---|
+| Hi | Hello! I'm the Cymbal Taxi assistant. I can help you order a taxi. Where would you like to be picked up? |
+| Alexanderplatz, Berlin | Great, thank you. And where will you be going? |
+| Brandenburg Gate | I have a taxi for you going from Alexanderplatz, Berlin to Brandenburg Gate. The estimated pickup time is 11 minutes. Should I go ahead and book it for you? |
+| Yes | Your taxi from Alexanderplatz, Berlin to Brandenburg Gate has been booked. |
 
-| yes   | Your taxi from Alexanderplatz, Berlin to Brandenburg Gate has been booked.   |
+---
 
+## 🎉 Congratulations!
 
+You have successfully completed the lab! You've learned how to:
+- ✨ Configure the Gemini CLI with CX Agent Studio MCP server
+- ✨ Create a CX agent using the console
+- ✨ Vibe code tools and agent instructions using natural language
+- ✨ Test your agent using the Preview Agent interface
 
+---
 
+## 📚 Additional Resources
 
-
-
-
-
-
-
-
+- [Google Cloud CX Agent Studio Documentation](https://cloud.google.com/documentation/cx-agents)
+- [Gemini CLI Documentation](https://cloud.google.com/docs/gemini-cli)
+- [Model Context Protocol (MCP) Reference](https://modelcontextprotocol.io/)
