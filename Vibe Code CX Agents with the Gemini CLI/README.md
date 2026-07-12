@@ -179,8 +179,3 @@ You have successfully completed the lab! You've learned how to:
 
 ---
 
-## 📚 Additional Resources
-
-- [Google Cloud CX Agent Studio Documentation](https://cloud.google.com/documentation/cx-agents)
-- [Gemini CLI Documentation](https://cloud.google.com/docs/gemini-cli)
-- [Model Context Protocol (MCP) Reference](https://modelcontextprotocol.io/)
