@@ -1,6 +1,6 @@
 # 🚀 Vibe Code CX Agents with the Gemini CLI
 
-Vibe coding is an emerging software development practice that uses artificial intelligence (AI) to generate functional code from natural language prompts, accelerating development, and making app building more accessible to developers of all skill levels.
+Vibe coding is an AI-assisted software development approach where you describe what you want in natural language, and an AI coding assistant generates, edits, and refines the code for you. Instead of writing every line manually, you guide the AI with prompts and iteratively improve the result.
 
 ---
 
