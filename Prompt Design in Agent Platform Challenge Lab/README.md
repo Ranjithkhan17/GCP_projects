@@ -160,10 +160,6 @@ Output: Pure Hydration: Power Your Stride.
 - Workbench instance created
 - Basic Python knowledge for notebook tasks
 
-### Resources
-- 🔗 [Agent Platform Documentation](https://cloud.google.com/docs)
-- 🔗 [Gemini API Guide](https://cloud.google.com/docs/gemini)
-- 🔗 [Prompt Design Best Practices](https://cloud.google.com/docs)
 
 ---
 
