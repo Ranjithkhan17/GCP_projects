@@ -24,12 +24,15 @@ Tasks:
 Create a new prompt with the model_name model to create a customizable tagline generator for Cymbal Direct's new product line.
 
 In the System instructions box, enter the following:
-
-Cymbal Direct is partnering with an outdoor gear retailer. They're launching a new line of products designed to encourage young people to explore the outdoors. Help them create catchy taglines for this product line.
-Copied!
+```
+Cymbal Direct is partnering with an outdoor gear retailer. They're launching a new line of products designed to encourage young people to explore the outdoors. 
+Help them create catchy taglines for this product line.
+```
 Include 2 Examples in your prompt to guide the output style. Add this example input and output for your first example, then use this template to add another example.
-Input	Output
-Write a tagline for a durable backpack designed for hikers that makes them feel prepared. Consider styles like minimalist.	Built for the Journey: Your Adventure Essentials.
+Input:
+Write a tagline for a durable backpack designed for hikers that makes them feel prepared. Consider styles like minimalist.	
+
+Built for the Journey: Your Adventure Essentials.
 Design a prompt with parameters to customize taglines based on:
 
 Product attributes (e.g., durable, lightweight)
