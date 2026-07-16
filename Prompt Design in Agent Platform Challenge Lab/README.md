@@ -42,6 +42,21 @@ This challenge lab guides you through designing, implementing, and refining prom
 6. **Save as:** `Cymbal Product Analysis`
 7. Select your Region and save
 
+Prompt:
+Role: You are a creative content generator.
+
+Task: Based on the following image description → [INSERT IMAGE DESCRIPTION], produce three distinct outputs:
+1. A short, descriptive text (1–2 sentences) that captures the essence of the image.  
+2. A catchy phrase suitable for advertisements (max 8 words).  
+3. A poetic description (3–4 lines) tailored for a nature-focused campaign.  
+
+Constraints:  
+- Keep each output clear, imaginative, and audience-friendly.  
+- Ensure variety in tone and style across the three outputs.  
+- After generating, evaluate the creativity and clarity of each output.  
+- Iterate by adjusting wording, style, or parameters to refine results if needed.
+
+
 ---
 
 ### ✅ Task 2: Build a Gemini Tagline Generator
@@ -62,10 +77,20 @@ Help them create catchy taglines for this product line.
 
 **Example Input/Output:**
 ```
-Input: Write a tagline for a durable backpack designed for hikers that makes them 
-feel prepared. Consider styles like minimalist.
+
+Example 1:
+
+Input: Write a tagline for a durable backpack designed for hikers that makes them feel prepared. Consider styles like minimalist.
 
 Output: Built for the Journey: Your Adventure Essentials.
+
+Example 2 (Using the Template):
+
+Click + Add Example to open a second pair of boxes.
+
+Input: Write a tagline for a lightweight water bottle designed for runners that makes them feel refreshed. Consider styles like modern.
+
+Output: Pure Hydration: Power Your Stride.
 ```
 
 **Steps:**
