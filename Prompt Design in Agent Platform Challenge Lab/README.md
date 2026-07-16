@@ -93,6 +93,30 @@ Input: Write a tagline for a lightweight water bottle designed for runners that 
 Output: Pure Hydration: Power Your Stride.
 ```
 
+
+Prompt:
+
+Role: You are a creative branding strategist.
+
+Task: Generate 5–7 tagline options for Cymbal Direct’s new product line.  
+Each tagline should be concise (max 10 words), memorable, and audience-friendly.  
+
+Parameters:  
+- Product Attributes: [INSERT ATTRIBUTES → e.g., durable, lightweight, eco-friendly]  
+- Target Audience: [INSERT AUDIENCE → e.g., young adventurers, families, professionals]  
+- Emotional Resonance: [INSERT EMOTION → e.g., empowered, connected, inspired]  
+
+Constraints:  
+- Ensure each tagline reflects the product attributes clearly.  
+- Adapt tone and style to resonate with the specified audience.  
+- Infuse emotional resonance so the tagline feels impactful.  
+- Provide variety: some playful, some aspirational, some straightforward.  
+
+Evaluation & Iteration:  
+- After generating, assess clarity, memorability, and emotional impact.  
+- Suggest refinements or alternative word choices if needed.  
+
+
 **Steps:**
 1. Create a new prompt in Agent Studio
 2. Add system instructions (see above)
