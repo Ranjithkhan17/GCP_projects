@@ -145,6 +145,12 @@ Evaluation & Iteration:
 3. Copy the second code cell into your notebook
 4. Run the code and verify output
 
+```
+def generate():
+  client = genai.Client(
+      vertexai=True, project=PROJECT_ID, location=LOCATION,
+  )
+```
 **Modifications:**
 1. Find the prompt text between triple quotes (`"""`)
 2. Modify the prompt to produce descriptions **less than 10 words**
