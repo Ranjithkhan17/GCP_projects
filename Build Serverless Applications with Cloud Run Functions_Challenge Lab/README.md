@@ -22,15 +22,15 @@ storage.googleapis.com
 ```
 Create Bucket:
 ```
-gcloud storage buckets create gs://qwiklabs-gcp-04-710be83424e2 \
+gcloud storage buckets create UNIQUE_BUCKET_NAME \
 --location=$REGION
 ```
 
 Give eventarc role to service account:
 ```
 
-gcloud projects add-iam-policy-binding qwiklabs-gcp-04-710be83424e2 \
-    --member=serviceAccount:898669575417-compute@developer.gserviceaccount.com \
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+    --member=serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com \
     --role=roles/eventarc.eventReceiver
 ```
 	------------------------------------------------------------
