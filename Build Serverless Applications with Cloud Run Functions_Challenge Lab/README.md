@@ -109,3 +109,4 @@ Create a directory and create index.js and package.json file inside it.
 *************************CONGRATULATIONS*************************
 
 
+![SKILL_BADGE_CLOUD_FUNTIONS](SKILL_BADGE_CLOUD_FUNTIONS.png)
