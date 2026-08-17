@@ -36,7 +36,7 @@ Create three VM instances that will serve as backend web servers. Update `--imag
       service apache2 restart
       echo "
 <h3>Web Server: www1</h3>" | tee /var/www/html/index.html'
-```
+```bash
   gcloud compute instances create www2 \
     --zone=Zone \
     --tags=network-lb-tag \
@@ -49,7 +49,7 @@ Create three VM instances that will serve as backend web servers. Update `--imag
       service apache2 restart
       echo "
 <h3>Web Server: www2</h3>" | tee /var/www/html/index.html'
-```
+```bash
   gcloud compute instances create www3 \
     --zone=Zone  \
     --tags=network-lb-tag \
