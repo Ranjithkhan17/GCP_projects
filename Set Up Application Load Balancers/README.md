@@ -24,41 +24,44 @@ Replace REGION and ZONE with your desired values, for example `us-central1` and 
 Create three VM instances that will serve as backend web servers. Update `--image-family`/`--image-project` as needed.
 
 ```bash
-gcloud compute instances create www1 \
-  --zone=ZONE \
-  --tags=network-lb-tag \
-  --machine-type=e2-small \
-  --image-family=debian-11 \
-  --image-project=debian-cloud \
-  --metadata=startup-script='#!/bin/bash
-    apt-get update
-    apt-get install -y apache2
-    systemctl restart apache2
-    echo "<h3>Welcome to RK Techlearning Web Server — This message is from Server1</h3>" | tee /var/www/html/index.html'
-
-gcloud compute instances create www2 \
-  --zone=ZONE \
-  --tags=network-lb-tag \
-  --machine-type=e2-small \
-  --image-family=debian-11 \
-  --image-project=debian-cloud \
-  --metadata=startup-script='#!/bin/bash
-    apt-get update
-    apt-get install -y apache2
-    systemctl restart apache2
-    echo "<h3>Welcome to RK Techlearning Web Server — This message is from Server2</h3>" | tee /var/www/html/index.html'
-
-gcloud compute instances create www3 \
-  --zone=ZONE \
-  --tags=network-lb-tag \
-  --machine-type=e2-small \
-  --image-family=debian-11 \
-  --image-project=debian-cloud \
-  --metadata=startup-script='#!/bin/bash
-    apt-get update
-    apt-get install -y apache2
-    systemctl restart apache2
-    echo "<h3>Welcome to RK Techlearning Web Server — This message is from Server3</h3>" | tee /var/www/html/index.html'
+  gcloud compute instances create www1 \
+    --zone=Zone \
+    --tags=network-lb-tag \
+    --machine-type=e2-small \
+    --image-family=Debian image ID \
+    --image-project=debian-cloud \
+    --metadata=startup-script='#!/bin/bash
+      apt-get update
+      apt-get install apache2 -y
+      service apache2 restart
+      echo "
+<h3>Web Server: www1</h3>" | tee /var/www/html/index.html'
+```
+  gcloud compute instances create www2 \
+    --zone=Zone \
+    --tags=network-lb-tag \
+    --machine-type=e2-small \
+    --image-family=Debian image ID \
+    --image-project=debian-cloud \
+    --metadata=startup-script='#!/bin/bash
+      apt-get update
+      apt-get install apache2 -y
+      service apache2 restart
+      echo "
+<h3>Web Server: www2</h3>" | tee /var/www/html/index.html'
+```
+  gcloud compute instances create www3 \
+    --zone=Zone  \
+    --tags=network-lb-tag \
+    --machine-type=e2-small \
+    --image-family=Debian image ID \
+    --image-project=debian-cloud \
+    --metadata=startup-script='#!/bin/bash
+      apt-get update
+      apt-get install apache2 -y
+      service apache2 restart
+      echo "
+<h3>Web Server: www3</h3>" | tee /var/www/html/index.html'
 ```
 
 Create a firewall rule allowing external HTTP (port 80) to the instances tagged with `network-lb-tag` and verify external IPs.
