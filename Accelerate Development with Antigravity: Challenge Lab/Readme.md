@@ -1,6 +1,6 @@
 # Accelerate Development with Antigravity — Challenge Lab
 
-Welcome to the "Accelerate Development with Antigravity" hands-on challenge. This lab walks you through authoring a skill for an Antigravity agent, scaffolding the agent project, and deploying it to Agent Runtime. It's written for learners and students so each step is clear, repeatable, and verifiable.
+Welcome to the "Accelerate Development with Antigravity" hands-on challenge. This lab walks you through authoring a skill for an Antigravity agent, scaffolding the agent project, and deploying it to Agent Runtime.
 
 ## Learning objectives
 
@@ -38,7 +38,7 @@ If you do not have agents-cli installed, follow your course or project instructi
 
 ## Lab tasks (step-by-step)
 
-There are three main tasks in this lab: authoring a skill (Task 3), scaffolding the agent (Task 4), and deploying to Agent Runtime (Task 5). Follow each section in order and verify the expected outputs.
+There are three main tasks in this lab: authoring a skill (Task 3), scaffolding the agent (Task 4), and deploying to Agent Runtime (Task 5). Follow each section in order and verify the expected outcomes.
 
 ### Task 3 — Author an agent skill and workspace rule
 
@@ -67,7 +67,7 @@ Skill requirements (summary):
 
 Suggested prompt (give this to the Antigravity authoring chat or include as the skill description when scaffolding):
 
-"Create an agent skill named `winter-storm-triage` that implements SOPs for winter-storm delay cases. The skill must verify orders using MCP tools `get_order_status` and `get_customer_loyalty_info`, determine compensation per loyalty tier, call `issue_disruption_compensation` to apply refunds/upgrades, and generate an empathetic customer response describing the credit and shipping upgrade. Include configurable parameters for currency amounts, shipping options, and tool names. Provide example success and error responses."
+"Create an agent skill named `winter-storm-triage` that implements SOPs for winter-storm delay cases. The skill must verify orders using MCP tools `get_order_status` and `get_customer_loyalty_info`, determine the loyalty tier, apply compensation per the policy, call `issue_disruption_compensation` to apply credits and shipping upgrades, and produce an empathetic customer message that summarizes the resolution and next steps."
 
 Deliverable for Task 3:
 
@@ -90,7 +90,7 @@ Constraints and instructions:
 
 Suggested CLI prompt to paste into Antigravity chat to perform scaffolding (or run equivalent commands locally):
 
-Build a new agent project named `winter-storm-triage` using agents-cli skills. Place the project inside `/home/user/Documents/genai144-challenge/`. Configure the agent to use the `gemini-3.1-flash-lite` model. Ensure the project includes the `winter-storm-triage` skill (SOPs from Task 3). Create `implementation_plan.md`. Review the plan and then proceed to authorize the build. Output `walkthrough.md` summarizing the work.
+Build a new agent project named `winter-storm-triage` using agents-cli skills. Place the project inside `/home/user/Documents/genai144-challenge/`. Configure the agent to use the `gemini-3.1-flash-lite` model and ensure the scaffold produces `app/agent.py`, a `skills/` folder containing the `winter_storm_triage` skill, and the required documentation files (`implementation_plan.md` and `walkthrough.md`).
 
 What to check after scaffolding:
 
@@ -117,7 +117,7 @@ Deployment steps (high-level):
 
 Suggested prompt for the Antigravity UI or CLI:
 
-"Deploy the `winter-storm-triage` agent to Agent Runtime in region `us-west1`. Make sure `cymbal_direct_mcp.py` is copied into `app/` so it is included in the deploy package. Generate an `implementation_plan.md` describing the deployment steps and expected verification checks. Proceed to deploy when ready."
+"Deploy the `winter-storm-triage` agent to Agent Runtime in region `us-west1`. Make sure `cymbal_direct_mcp.py` is copied into `app/` so it is included in the deploy package. Generate an `implementation_plan.md` describing the deployment steps and produce a `walkthrough.md` summarizing results."
 
 What to verify after deployment:
 
@@ -151,23 +151,27 @@ What to verify after deployment:
 
 ## Reference prompts (copy/paste-ready)
 
-Task 3 prompt (author skill):
+# Task 3: Author skill prompt
+```bash
+cat << 'TASK3'
+Create an agent skill named `winter-storm-triage` that implements SOPs for winter-storm delay cases. The skill must verify orders using MCP tools `get_order_status` and `get_customer_loyalty_info`, determine the loyalty tier (Platinum/Gold/Silver/Member), apply compensation per the policy, call MCP tool `issue_disruption_compensation` to apply credits and shipping upgrades, and generate an empathetic, professional customer message acknowledging the disruption, summarizing the resolution (credit and shipping upgrade), and explaining next steps.
+TASK3
+```
 
-"Create an agent skill named `winter-storm-triage` that implements SOPs for winter-storm delay cases. The skill must verify orders using MCP tools `get_order_status` and `get_customer_loyalty_info`, determine compensation per loyalty tier, call `issue_disruption_compensation` to apply refunds/upgrades, and generate an empathetic customer response describing the credit and shipping upgrade. Include configurable parameters for currency amounts, shipping options, and tool names. Provide example success and error responses."
+# Task 4: Scaffold prompt
+```bash
+cat << 'TASK4'
+Build a new agent project named `winter-storm-triage` using agents-cli skills. Place the project in /home/user/Documents/genai144-challenge/. Configure the agent to use model `gemini-3.1-flash-lite`. Ensure the scaffold produces `app/agent.py` referencing the configured model, a `skills/` folder containing the `winter_storm_triage` skill files, and the documentation files `implementation_plan.md` and `walkthrough.md` in the project root.
+TASK4
+```
 
-Task 4 prompt (scaffold):
-
-"Build a new agent project named `winter-storm-triage` using agents-cli skills. Place the project in `/home/user/Documents/genai144-challenge/`. Configure the agent to use model `gemini-3.1-flash-lite`. Ensure the project includes the `winter-storm-triage` skill and create `implementation_plan.md`. Review the plan and proceed to authorize the build. Output `walkthrough.md` summarizing the work."
-
-Task 5 prompt (deploy):
-
-"Deploy the `winter-storm-triage` agent to Agent Runtime in `us-west1`. Ensure `cymbal_direct_mcp.py` is copied into `app/` so it is bundled for deployment. Configure the deployment for the specified region and generate an `implementation_plan.md`. Review and proceed."
+# Task 5: Deploy prompt
+```bash
+cat << 'TASK5'
+Deploy the `winter-storm-triage` agent to Agent Runtime in `us-west1`. Make sure `cymbal_direct_mcp.py` is copied into `app/` so it is bundled for deployment. Build the deployment package with agents-cli (or your packaging tool) and deploy to Agent Runtime. Verify the service status is READY or RUNNING and that test invocations show MCP tool calls and an empathetic response for a delayed delivery scenario.
+TASK5
+```
 
 ---
 
-If you’d like, I can:
-
-- Create the `implementation_plan.md` and `walkthrough.md` templates for you in the project.
-- Add a starter `skills/winter_storm_triage` skill file (skeleton) implementing the SOP in JSON or Python.
-
-Tell me which of those you want me to add next and I’ll create the files inside the repository for you.
+Tell me if you want me to also create `implementation_plan.md`, `walkthrough.md`, or add a starter `skills/winter_storm_triage` skeleton file in the repository and I will add them next.
