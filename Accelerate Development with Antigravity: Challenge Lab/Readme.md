@@ -174,4 +174,3 @@ TASK5
 
 ---
 
-Tell me if you want me to also create `implementation_plan.md`, `walkthrough.md`, or add a starter `skills/winter_storm_triage` skeleton file in the repository and I will add them next.
