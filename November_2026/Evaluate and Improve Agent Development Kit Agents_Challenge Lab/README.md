@@ -356,7 +356,7 @@ gcloud storage cp ./bigquery_agent/agent.py \
 **A. Ranjith Kumar** shares cloud learning resources, tutorials, and hands-on project walkthroughs.
 
 - [Connect with me on LinkedIn](https://www.linkedin.com/in/ranjith-kumar-cloudengineer)
-- [Subscribe to RK Tech Learning on YouTube](https://www.youtube.com/@RKTechLearning)
+- [Subscribe to RK Tech Learning on YouTube](https://www.youtube.com/@RKTechlearning-n8e)
 
 ### ☕ Support my work
 
